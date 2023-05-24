@@ -1,4 +1,4 @@
-name: Python package
+name: Python package - ${{ github.event.repository.name }}
 run-name: Testing on ${{ github.event.repository.name }}
 
 
