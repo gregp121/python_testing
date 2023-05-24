@@ -1,3 +1,3 @@
-import calculator from mock_testing
+import mock_testing
 
-assert calculator.sum(1, 2) == 3
+assert mock_testing.Calculator.sum(1, 2) == 3
