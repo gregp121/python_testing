@@ -20,7 +20,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install ruff pytest
-          pip install unittest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Lint with ruff
         run: |
@@ -28,9 +27,6 @@ jobs:
           ruff --format=github --select=E9,F63,F7,F82 --target-version=py37 .
           # default set of ruff rules with GitHub Annotations
           ruff --format=github --target-version=py37 .
-     - name: Test with Unittest
-        run: |
-          python -m unittest discover
-     - name: Test with pytest
+      - name: Test with pytest
         run: |
           pytest
