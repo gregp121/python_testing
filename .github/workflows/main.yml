@@ -1,4 +1,6 @@
 name: Python package
+run-name: Testing on ${{ github.event.repository.name }}
+
 
 on: [push]
 
