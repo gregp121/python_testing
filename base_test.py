@@ -4,8 +4,8 @@
 # To be found,  test files must be importable from the top-level
 
 print("Hello Testing!")
-def test_pass(self): # Had to create subclasses for functions
+def test_pass(): # Had to create subclasses for functions
     assert True # Had to use selfassert
 
-def test_fail(self):
+def test_fail():
     assert False
