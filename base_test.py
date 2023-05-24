@@ -1,6 +1,7 @@
 # Tests with unittests
 
-# Unit tests supports simple discovery. To be found, all test files must be in modules or packages importable from the top-level
+# Unit tests supports simple discovery. 
+# To be found,  test files must be importable from the top-level
 
 class pyTesting():
     print("Hello world!")
