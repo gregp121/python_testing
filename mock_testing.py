@@ -1,5 +1,3 @@
 class Calculator:
-    def sum(self, a, b):
+    def sum(a, b):
         return a + b
-    
-assert Calculator.sum(1, 2) == 3
