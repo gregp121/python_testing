@@ -10,5 +10,5 @@ def testVal(mocker):
         # Mock a constant, object, function
         # You want to mokc where the object is import INTO not FROM
         # So if you already import B into A, you patch in A
-    mocker.patch.object(mock_testing.returnVal, 'CONSTANT_VAL', 400) # Patching where imported. Value is usually 200
+    mocker.patch.object(mock_testing.returnVal, 'CONSTANT_VAL', 400)
     assert mock_testing.returnVal() == 200
