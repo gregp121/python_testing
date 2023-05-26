@@ -10,7 +10,7 @@ def testObjectMock(mocker):
 
 # We can patch our slow API calls
 def testFunctiontMock(mocker):
-    mocker.patch.object(mock_testing.api_call, return_value="Mocked API!")
+    mocker.patch.object('mock_testing.api_call', return_value="Mocked API!")
     call = mock_testing.slowAPI()
     assert call == 200
 
