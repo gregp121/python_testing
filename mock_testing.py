@@ -17,3 +17,15 @@ def returnVal():
     # RETURN_VAL = valCalc() 
     RETURN_VAL = CONSTANT_VAL
     return RETURN_VAL
+
+class slowData:
+    def __init__(self):
+        self.data = None
+    
+    def load_data(self):
+        time.sleep(120)
+        self.data = 'Slooow'
+
+def slow_dataset():
+    dataset = slowData()
+    return dataset.load_data

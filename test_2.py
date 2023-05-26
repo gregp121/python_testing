@@ -12,7 +12,18 @@ def testObjectMock(mocker):
 def testFunctiontMock(mocker):
     mocker.patch('mock_testing.api_call', return_value="Mocked API!")
     call = mock_testing.slowAPI()
-    assert call == 200
+    assert call == "Mocked API!"
+
+
+# Mock a class
+def testClassMock(mocker):
+
+    def mock_load(self):
+        return 'Fast Data'
+    
+    mocker.patch('mock_testing.slowData.load_data', mock_load)
+    actual = mock_testing.slow_dataset()
+    assert actual == 'Fast Data'
 
 
 
