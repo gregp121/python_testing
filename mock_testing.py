@@ -10,6 +10,6 @@ def valCalc():
 
 def returnVal():
     # time.sleep(1000)
-    RETURN_VAL = valCalc() 
+    # RETURN_VAL = valCalc() 
     RETURN_VAL = CONSTANT_VAL
     return RETURN_VAL

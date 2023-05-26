@@ -5,7 +5,7 @@ def testCal():
     assert mock_testing.Calculator.sum(1, 2) == 3
 
 def testVal(mocker):
-    mocker.patch.object(mock_testing, 'RETURN_VAL', 400)
+    mocker.patch.object(mock_testing, 'CONSTANT_VAL', 400)
     assert returnVal() == 200
 
 # returnVal has a wait, we do not want to slow down our tests
