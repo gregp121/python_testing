@@ -4,9 +4,17 @@ from mock_testing import returnVal
 def testCal():
     assert mock_testing.Calculator.sum(1, 2) == 3
 
-def testVal(mocker):
+def testObjectMock(mocker):
     mocker.patch.object(mock_testing, 'CONSTANT_VAL', 400)
     assert returnVal() == 200
+
+# We can patch our slow API calls
+def testFunctiontMock(mocker):
+    mocker.patch.object(mock_testing.api_call, return_value="Mocked API!")
+    call = mock_testing.slowAPI()
+    assert call == 200
+
+
 
 # returnVal has a wait, we do not want to slow down our tests
 # Break out the API (integration) and value tests
