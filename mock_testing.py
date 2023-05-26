@@ -6,5 +6,5 @@ class Calculator:
         return a + b
     
 def returnVal():
-    time.sleep(1000)
+    # time.sleep(1000)
     return CONSTANT_VAL
