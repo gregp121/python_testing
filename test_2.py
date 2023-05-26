@@ -6,7 +6,7 @@ def testCal():
 
 def testObjectMock(mocker):
     mocker.patch.object(mock_testing, 'CONSTANT_VAL', 400)
-    assert returnVal() == 200
+    assert returnVal() == 400
 
 # We can patch our slow API calls
 def testFunctiontMock(mocker):

@@ -28,4 +28,4 @@ class slowData:
 
 def slow_dataset():
     dataset = slowData()
-    return dataset.load_data
+    return dataset.load_data()
