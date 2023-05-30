@@ -22,18 +22,17 @@ def inorderTraversalUtil(root, answer):
     inorderTraversalUtil(root.left, answer) # This makes the left the root then applies, repeat
     inorderTraversalUtil(root.right, answer)
     if root.val == "+":
-        print(answer)
-        sum1 = sum(int(answer[0]), int(answer[1]))
-        answer = [sum1]
-        print(sum(answer))
+        print('Add is: ', answer)
+        #sum1 = sum(int(answer[0]), int(answer[1]))
+        #answer = [sum1]
+        #print(sum(answer))
     if root.val == "*":
-        print(answer)
+        print('Multi is: ', answer)
         product1 = mul(int(answer[0]),  int(answer[1]))
-        answer = [product1]
-        print("Traversal says: multiply")
+        answer[0] = product1
+        answer.pop(1)
     answer.append(root.val)
     return
-
 
 base = "4 * 5 + 1"
 
@@ -45,18 +44,24 @@ def multiDiv(x):
 
 
 # Build tree insertion
+# Left node is the larger splice
 def treeBuilder():
     if any(operator in base for operator in ('+', '-')):
         baseSplice = addSub(base)
         # ['1 ', '+', ' 5 * 4']
         root = TreeNode(baseSplice[1])
-        root.right = TreeNode(baseSplice[2])
-        if len(addSub(baseSplice[0])) > 1:
+        root.right = TreeNode(baseSplice[0])
+        root.left = TreeNode(baseSplice[2])
+        if len(addSub(baseSplice[2])) > 1: 
             leftSplice = addSub(baseSplice[2])
-            root.left = TreeNode(leftSplice[1])
-        elif len(multiDiv(baseSplice[0])) > 1:
+            root.left.val = leftSplice[1]
+            root.left.left = TreeNode(leftSplice[0])
+            root.left.right = TreeNode(leftSplice[2])
+        elif len(multiDiv(baseSplice[2])) > 1:
             leftSplice = multiDiv(baseSplice[2])
-            root.left = TreeNode(leftSplice[1])
+            root.left.val = leftSplice[1]
+            root.left.left = TreeNode(leftSplice[0])
+            root.left.right = TreeNode(leftSplice[2])
         else:
             root.left = TreeNode("0")
     else:
@@ -64,22 +69,6 @@ def treeBuilder():
         root.right = TreeNode("0")
     return root
 
-
-
-# additionNode = addition[1]
-# remainder = addition[0]
-# remainderArray = remainder.split('*')
-# remainderNode1 = remainderArray[0]
-# remainderNode2 = remainderArray[1]
-# print(addition[1])
-
-# root = TreeNode("+")
-# root.left = TreeNode("*")
-# root.left.left = TreeNode(remainderNode1)
-# root.left.right = TreeNode(remainderNode2) # If we are doing inorder, we want to split on the addition last because then it is the last node
-
 treeBuilder()
 inorderTraversal(treeBuilder())
-#print(inorderTraversal(root))
-
 # So, if I want to solve 4 * 5 + 1, I split on the + 1 since that's what I want do do last. (Does it get more complicated if I have multiple +s)
