@@ -19,7 +19,7 @@ def inorderTraversalUtil(root, answer):
     if root is None:
         return # This cleanly handles non-existent "nodes"
 
-    inorderTraversalUtil(root.left, answer) # This makes the left the root then applies, repeat
+    inorderTraversalUtil(root.left, answer) # Makes left the root
     inorderTraversalUtil(root.right, answer)
     if root.val == "+":
         print('Add is: ', answer)
@@ -71,4 +71,3 @@ def treeBuilder():
 
 treeBuilder()
 inorderTraversal(treeBuilder())
-# So, if I want to solve 4 * 5 + 1, I split on the + 1 since that's what I want do do last. (Does it get more complicated if I have multiple +s)
