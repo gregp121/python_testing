@@ -23,9 +23,14 @@ def inorderTraversalUtil(root, answer):
     inorderTraversalUtil(root.right, answer)
     if root.val == "+":
         print('Add is: ', answer)
-        #sum1 = sum(int(answer[0]), int(answer[1]))
-        #answer = [sum1]
-        #print(sum(answer))
+        answer.pop(1)
+        x = answer[0]
+        print("x is: ", x)
+        y = answer[1]
+        print("x is: ", y)
+        sum1 = int(x) + int(y)
+        answer = [sum1]
+        print("Value is: ", answer)
     if root.val == "*":
         print('Multi is: ', answer)
         product1 = mul(int(answer[0]),  int(answer[1]))
