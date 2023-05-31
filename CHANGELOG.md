@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/gregp121/python_testing/compare/v1.0.0...v1.0.1) (2023-05-31)
+
+
+### Features
+
+* Adding new test ([44d9b2b](https://github.com/gregp121/python_testing/commit/44d9b2bc2a23eee9e6d05a7e13159c5fdd020fc4))
+
 ## 1.0.0 (2023-05-26)
 
 
