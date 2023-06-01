@@ -31,6 +31,7 @@ def inorderTraversalUtil(root, answer):
         sum1 = int(x) + int(y)
         answer = [sum1]
         print("Value is: ", answer)
+        return answer
     if root.val == "*":
         print('Multi is: ', answer)
         product1 = mul(int(answer[0]),  int(answer[1]))
