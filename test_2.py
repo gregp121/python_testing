@@ -1,7 +1,7 @@
 import mock_testing #Our test target
 from mock_testing import returnVal
 import binary_traversal
-from binary_traversal import *
+from binary_traversal import treeBuilder, inorderTraversal
 
 def testCal():
     assert mock_testing.Calculator.sum(1, 2) == 3
