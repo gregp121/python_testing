@@ -28,7 +28,7 @@ def testClassMock(mocker):
 
 # Test Binary tree
 def testTraversal(mocker):
-    mocker.patch.object(mock_testing, 'base', '4 * 5 + 1')
+    mocker.patch.object(binary_traversal, 'base', '4 * 5 + 1')
     assert returnVal() == ['20', '1 ']
 
 
