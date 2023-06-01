@@ -1,5 +1,6 @@
 import mock_testing #Our test target
 from mock_testing import returnVal
+import binary_traversal
 
 def testCal():
     assert mock_testing.Calculator.sum(1, 2) == 3
@@ -24,6 +25,11 @@ def testClassMock(mocker):
     mocker.patch('mock_testing.slowData.load_data', mock_load)
     actual = mock_testing.slow_dataset()
     assert actual == 'Fast Data'
+
+# Test Binary tree
+def testTraversal(mocker):
+    mocker.patch.object(mock_testing, 'base', '4 * 5 + 1')
+    assert returnVal() == ['20', '1 ']
 
 
 
