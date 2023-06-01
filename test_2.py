@@ -30,7 +30,8 @@ def testClassMock(mocker):
 # Test Binary tree
 def testTraversal(mocker):
     mocker.patch.object(binary_traversal, 'base', '4 * 5 + 1')
-    assert inorderTraversal(treeBuilder()) == 21
+    result = inorderTraversal(treeBuilder())
+    assert result[2] == 21
 
 
 

@@ -29,7 +29,7 @@ def inorderTraversalUtil(root, answer):
         y = answer[1]
         print("x is: ", y)
         sum1 = int(x) + int(y)
-        answer = [sum1]
+        answer.append(sum1)
         print("Value is: ", answer)
         return answer
     if root.val == "*":
