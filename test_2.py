@@ -1,6 +1,7 @@
 import mock_testing #Our test target
 from mock_testing import returnVal
 import binary_traversal
+from binary_traversal import *
 
 def testCal():
     assert mock_testing.Calculator.sum(1, 2) == 3
@@ -29,7 +30,7 @@ def testClassMock(mocker):
 # Test Binary tree
 def testTraversal(mocker):
     mocker.patch.object(binary_traversal, 'base', '4 * 5 + 1')
-    assert returnVal() == ['20', '1 ']
+    assert inorderTraversal(treeBuilder()) == ['20', '1 ']
 
 
 
