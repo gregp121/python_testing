@@ -37,7 +37,7 @@ def inorderTraversalUtil(root, answer):
         answer[0] = product1
         answer.pop(1)
     answer.append(root.val)
-    return
+    return answer
 
 base = "4 * 5 + 1"
 
