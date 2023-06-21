@@ -28,7 +28,7 @@ def create_tasks_payload():
     },
     {
         "content": "Testing_twice",
-        "user_id": "user_test",
+        "user_id": "list_test",
         "task_id": "test_2",
         "is_done": False
     },
@@ -51,7 +51,7 @@ def update_api_call(payload):
     return requests.put(ENDPOINT + "/update-task", json=payload)
 
 def list_api_call(user_id):
-    return requests.get(ENDPOINT + f"/list-task/{user_id}")
+    return requests.get(ENDPOINT + f"/list-tasks/{user_id}")
 
 # Named with test_
 def test_create():
@@ -94,24 +94,29 @@ def test_update():
 
 # We will want to create tasks for a user to list
 def test_list():
-    payload = create_payload()
-    user = payload["user_id"]
+    payload = create_tasks_payload()
+    payload1 = payload[0]
+    create_api_call(payload1)
+    payload2 = payload[1]
+    create_api_call(payload2)
+    payload3 = payload[2]
+    create_api_call(payload3)
+
+    user = payload1["user_id"]
     list_response = list_api_call(user)
     data = list_response.json()
+    print(data)
     task_list = data["tasks"]
-    assert create_status == 200
+    assert task_list[0]["content"] == payload1["content"]
+    assert task_list[1]["content"] == payload2["content"]
+    assert task_list[2]["content"] == payload3["content"]
+    print(task_list)
 
     # Above are repeat tests to make sure everything works in isolation
     # Below are new tests
-    new_payload = {
-        "user_id": payload["user_id"],
-        "task_id": task_id,
-        "content": "updated info",
-        "is_done": True,
-    }
-    update_response = update_api_call(new_payload)
-    assert update_response.status_code == 200
-    get_response = get_api_call(task_id)
-    get_content = get_response.json()
-    assert get_content["content"] == new_payload["content"]
-    assert get_content["is_done"] == new_payload["is_done"]
+    # update_response = update_api_call(new_payload)
+    # assert update_response.status_code == 200
+    # get_response = get_api_call(task_id)
+    # get_content = get_response.json()
+    # assert get_content["content"] == new_payload["content"]
+    # assert get_content["is_done"] == new_payload["is_done"]
