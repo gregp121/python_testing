@@ -112,11 +112,17 @@ def test_list():
     assert task_list[2]["content"] == payload3["content"]
     print(task_list)
 
-    # Above are repeat tests to make sure everything works in isolation
-    # Below are new tests
-    # update_response = update_api_call(new_payload)
-    # assert update_response.status_code == 200
-    # get_response = get_api_call(task_id)
-    # get_content = get_response.json()
-    # assert get_content["content"] == new_payload["content"]
-    # assert get_content["is_done"] == new_payload["is_done"]
+def test_delete():
+    payload = create_payload()
+    create_response = create_api_call(payload)
+    data = create_response.json()
+    print(data)
+    task_id = data["task"]["task_id"]
+    create_status = create_response.status_code
+    assert create_status == 200
+
+    test_create = get_api_call(task_id)
+    test_create_status = test_create.status_code
+    assert test_create_status == 200
+    test_create_data = test_create.json()
+    assert test_create_data["content"] == payload["content"]
