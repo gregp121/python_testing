@@ -1,6 +1,5 @@
 import mock_testing #Our test target
 from mock_testing import returnVal
-# For abstraction, import the abc module
 
 def testCal():
     assert mock_testing.Calculator.sum(1, 2) == 3
