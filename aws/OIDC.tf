@@ -14,8 +14,9 @@ provider "aws" {
 
 # AWS secures comms with Github using trusted CAs - NOTE: This only connects to github
 ## Old value: url             = data.tls_certificate.tfc_certificate.url
+## We should probably use the URL we got the thumbprint from
 resource "aws_iam_openid_connect_provider" "github_provider" {
-  url             = "https://github.com"
+  url             = "https://token.actions.githubusercontent.com"
   client_id_list  = [var.tfc_aws_audience]
   thumbprint_list = ["1c58a3a8518e8759bf075b76b750d4f2df264fcd"]
 }
