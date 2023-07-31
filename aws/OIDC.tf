@@ -50,7 +50,7 @@ resource "aws_iam_role" "github_role" {
          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
        },
        "StringLike": {
-         "token.actions.githubusercontent.com:sub": "repo: ${var.repo_name}:ref:refs/heads/*"
+         "token.actions.githubusercontent.com:sub": "repo:gregp121/${var.repo_name}:*"
        }
      }
    }
@@ -87,7 +87,7 @@ EOF
 # previously created role.
 #
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment
-resource "aws_iam_role_policy_attachment" "tfc_policy_attachment" {
+resource "aws_iam_role_policy_attachment" "git_policy_attachment" {
   role       = aws_iam_role.github_role.name
   policy_arn = aws_iam_policy.git_policy.arn
 }
