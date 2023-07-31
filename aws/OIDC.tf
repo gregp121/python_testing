@@ -30,6 +30,8 @@ resource "aws_iam_openid_connect_provider" "github_provider" {
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role
 
 ### NOTEL Federated role can be found when editing the trust relationship of a created role
+
+## NOTE: Originally approved main, not Terraform branch - ${var.branch}
 resource "aws_iam_role" "github_role" {
   name = "github-role"
 
@@ -48,7 +50,7 @@ resource "aws_iam_role" "github_role" {
          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
        },
        "StringLike": {
-         "token.actions.githubusercontent.com:sub": "repo: ${var.repo_name}:ref:refs/heads/${var.branch}*"
+         "token.actions.githubusercontent.com:sub": "repo: ${var.repo_name}:ref:refs/heads/*"
        }
      }
    }
