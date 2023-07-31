@@ -1,4 +1,5 @@
 name: AWS Terraform
+run-name: Building on ${{ github.event.repository.name }}
 
 permissions:
   id-token: write # This is required for requesting the JWT
@@ -15,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
+        uses: actions/checkout@v3
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
       - name: configure aws credentials
