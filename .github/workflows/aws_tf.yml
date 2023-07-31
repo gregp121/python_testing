@@ -1,5 +1,4 @@
 name: AWS Terraform
-run-name: Building ${{ github.event.repository.name }}
 
 permissions:
   id-token: write # This is required for requesting the JWT
