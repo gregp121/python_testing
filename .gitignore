@@ -1,0 +1,4 @@
+./aws/.terraform*
+aws/.terraform/providers/registry.terraform.io/hashicorp/tls/4.0.4/windows_386/terraform-provider-tls_v4.0.4_x5.exe
+aws/.terraform/providers/registry.terraform.io/hashicorp/aws/5.10.0/windows_386/terraform-provider-aws_v5.10.0_x5.exe
+aws/.terraform.lock.hcl
